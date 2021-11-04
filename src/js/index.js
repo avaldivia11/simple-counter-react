@@ -12,15 +12,25 @@ import { checkPropTypes } from "prop-types";
 
 function SimpleCounter(props) {
 	return (
-		<div className="bigCounter">
-			<div className="calendar">
-				<i className="far fa-clock"></i>
+		<>
+			<div className="bigCounter">
+				<div className="calendar">
+					<i className="far fa-clock"></i>
+				</div>
+				<div className="four">{props.digitFour % 10}</div>
+				<div className="three">{props.digitThree % 10}</div>
+				<div className="two">{props.digitTwo % 10}</div>
+				<div className="one">{props.digitOne % 10}</div>
 			</div>
-			<div className="four">{props.digitFour % 10}</div>
-			<div className="three">{props.digitThree % 10}</div>
-			<div className="two">{props.digitTwo % 10}</div>
-			<div className="one">{props.digitOne % 10}</div>
-		</div>
+			<div className="botones">
+				<button type="button" className="btn btn-light btn-sm">
+					Iniciar
+				</button>
+				<button type="button" className="btn btn-light btn-sm">
+					Detener
+				</button>
+			</div>
+		</>
 	);
 }
 SimpleCounter.propTypes = {
@@ -49,3 +59,7 @@ setInterval(function() {
 		document.querySelector("#app")
 	);
 }, 1000);
+
+setTimeout(function() {
+	alert("Time over!!!");
+}, 11000);
